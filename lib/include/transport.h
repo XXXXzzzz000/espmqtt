@@ -12,9 +12,8 @@
 extern "C" {
 #endif
 
-
-typedef struct transport_list_t* transport_list_handle_t;
-typedef struct transport_item_t* transport_handle_t;
+typedef struct transport_list_t *transport_list_handle_t;
+typedef struct transport_item_t *transport_handle_t;
 
 typedef int (*connect_func)(transport_handle_t t, const char *host, int port, int timeout_ms);
 typedef int (*io_func)(transport_handle_t t, char *buffer, int len, int timeout_ms);

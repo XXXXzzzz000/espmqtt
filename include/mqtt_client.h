@@ -86,20 +86,20 @@ typedef struct
     char username[MQTT_MAX_USERNAME_LEN]; /*!< MQTT username */
     char password[MQTT_MAX_PASSWORD_LEN]; /*!< MQTT password */
 
-    char lwt_topic[MQTT_MAX_LWT_TOPIC];   /*!< lwt_topic, lwt_msg, lwt_qos, lwt_retain,  */
-    char lwt_msg[MQTT_MAX_LWT_MSG];       /*!< lwt_msg_len are mqtt lwt options, default NULL */
+    char lwt_topic[MQTT_MAX_LWT_TOPIC]; /*!< lwt_topic, lwt_msg, lwt_qos, lwt_retain,  */
+    char lwt_msg[MQTT_MAX_LWT_MSG];     /*!< lwt_msg_len are mqtt lwt options, default NULL */
     int lwt_qos;
     int lwt_retain;
     int lwt_msg_len;
-    int disable_clean_session;            /*!< mqtt clean session, default is true */
-    int keepalive;                        /*!< (value in seconds) mqtt keepalive, default is 120 seconds */
-    bool disable_auto_reconnect;          /*!< this mqtt client will reconnect to server (when errors/disconnect). Set true to disable */
-    void *user_context;                   /*!< pass user context to this option, then can receive that context in event->user_context */
-    int task_prio;                        /*!< task_prio, task_stack */
-    int task_stack;                       /*!< for MQTT task, default priority is 5, and task_stack = 6144 bytes (or default task stack can be set via make menucofig). */
-    int buffer_size;                      /*!< for MQTT send/receive buffer, default is 1024 */
-    const char *cert_pem;                 /*!< pointer to CERT file for server verify (with SSL), default is NULL, not required to verify the server */
-    esp_mqtt_transport_t transport;       /*!< override URI transport */
+    int disable_clean_session;      /*!< mqtt clean session, default is true */
+    int keepalive;                  /*!< (value in seconds) mqtt keepalive, default is 120 seconds */
+    bool disable_auto_reconnect;    /*!< this mqtt client will reconnect to server (when errors/disconnect). Set true to disable */
+    void *user_context;             /*!< pass user context to this option, then can receive that context in event->user_context */
+    int task_prio;                  /*!< task_prio, task_stack */
+    int task_stack;                 /*!< for MQTT task, default priority is 5, and task_stack = 6144 bytes (or default task stack can be set via make menucofig). */
+    int buffer_size;                /*!< for MQTT send/receive buffer, default is 1024 */
+    const char *cert_pem;           /*!< pointer to CERT file for server verify (with SSL), default is NULL, not required to verify the server */
+    esp_mqtt_transport_t transport; /*!< override URI transport */
 } esp_mqtt_client_config_t;
 
 /**
@@ -167,5 +167,3 @@ int esp_mqtt_client_publish(esp_mqtt_client_handle_t client, const char *topic, 
  * @return ESP_OK on success
  */
 esp_err_t esp_mqtt_client_destroy(esp_mqtt_client_handle_t client);
-
-
