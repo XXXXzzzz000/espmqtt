@@ -12,6 +12,7 @@
 #include <string.h>
 
 #include "mqtt_config.h"
+#include "esp_err.h"
 
 typedef struct esp_mqtt_client* esp_mqtt_client_handle_t;
 
